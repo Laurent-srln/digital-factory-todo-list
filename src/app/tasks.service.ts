@@ -13,6 +13,11 @@ export class TasksService {
     return tasks;
   }
 
+  getTaskById(taskId: number) {
+    let index = tasks.map(e => e.id).indexOf(taskId);
+    return tasks[index];
+  }
+
   changeTaskStatus = (task: Itask) => {
     let index = tasks.map(e => e.id).indexOf(task.id);
     tasks[index].status = tasks[index].status ? false : true;

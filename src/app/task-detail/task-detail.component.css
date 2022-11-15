@@ -1,0 +1,32 @@
+
+.full-width {
+  width: 100%;
+}
+
+textarea {
+  width: 70%;
+  margin-left: 10vh;
+  height: 50vh;
+}
+
+.name {
+  margin-left: 10vh;
+  font-size: 2rem;
+  width: 70%;
+}
+
+.done-task {
+  text-decoration: line-through;
+}
+
+.id {
+  margin-left: 10vh;
+}
+
+.status {
+  margin-left: 10vh;
+}
+
+a {
+  margin-left: 10vh;
+}

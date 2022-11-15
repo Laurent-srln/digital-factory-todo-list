@@ -5,5 +5,6 @@
   </mat-card-title-group>
   <mat-card-actions >
     <mat-checkbox class="example-margin" [checked]="task?.status" (change)="changeTaskStatus()">{{ task?.status ? "": "I'm done with"}} </mat-checkbox>
+    <a href="" [routerLink]="['/tasks', task?.id]"><button mat-button>DETAILS</button></a>
   </mat-card-actions>
 </mat-card>

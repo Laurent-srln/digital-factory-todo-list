@@ -1,0 +1,17 @@
+
+<form >
+  <mat-form-field class="full-width" appearance="outline">
+    <input class="name" [ngClass]="{'done-task': task?.status}" disabled matInput [value]="task?.title">
+  </mat-form-field>
+  <mat-form-field class="full-width" appearance="outline">
+    <input class="id" disabled  matInput [value]="task?.id">
+  </mat-form-field>
+  <mat-form-field class="full-width" appearance="outline">
+    <input class="status" disabled  matInput [value]="task?.status? 'Done' : 'To do'">
+  </mat-form-field>
+  <mat-form-field class="full-width " appearance="fill">
+    <textarea disabled  class="large-heigth" matInput [value]="task?.description"></textarea>
+  </mat-form-field>
+</form>
+
+<a href="" [routerLink]="['/']"><button mat-button>RETOUR TODO</button></a>
