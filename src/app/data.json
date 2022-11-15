@@ -1,0 +1,20 @@
+[
+  {
+    "id":2,
+    "title": "Add \"done\" checkbox",
+    "description": "When a todo is done, it should be placed at the bottom of the list and should be crossed out. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, delectus aperiam unde a accusantium sapiente veniam nostrum dolorem laboriosam adipisci officia tenetur similique nam quas. Recusandae pariatur odio iusto harum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates architecto dicta, debitis qui necessitatibus aliquam quibusdam error minus incidunt! Quisquam nesciunt tempora aspernatur rem asperiores aliquid itaque, consectetur nihil quos iure magnam molestias eveniet quasi alias officiis veritatis velit corrupti debitis. Odio iste possimus, voluptatem blanditiis eos sit. Dignissimos distinctio nisi repudiandae nobis quibusdam perferendis perspiciatis corporis ipsa. Voluptate, fugiat.",
+    "status": false
+  },
+  {
+    "id":3,
+    "title": "Create form to add a new todo",
+    "description": "As a user I would like to add a new todo in my list. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, delectus aperiam unde a accusantium sapiente veniam nostrum dolorem laboriosam adipisci officia tenetur similique nam quas. Recusandae pariatur odio iusto harum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates architecto dicta, debitis qui necessitatibus aliquam quibusdam error minus incidunt! Quisquam nesciunt tempora aspernatur rem asperiores aliquid itaque, consectetur nihil quos iure magnam molestias eveniet quasi alias officiis veritatis velit corrupti debitis. Odio iste possimus, voluptatem blanditiis eos sit. Dignissimos distinctio nisi repudiandae nobis quibusdam perferendis perspiciatis corporis ipsa. Voluptate, fugiat.",
+    "status": false
+  },
+  {
+    "id": 1,
+    "title": "Develop functionality to list TODOs",
+    "description": "As a user I would like to list my current todos. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, delectus aperiam unde a accusantium sapiente veniam nostrum dolorem laboriosam adipisci officia tenetur similique nam quas. Recusandae pariatur odio iusto harum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates architecto dicta, debitis qui necessitatibus aliquam quibusdam error minus incidunt! Quisquam nesciunt tempora aspernatur rem asperiores aliquid itaque, consectetur nihil quos iure magnam molestias eveniet quasi alias officiis veritatis velit corrupti debitis. Odio iste possimus, voluptatem blanditiis eos sit. Dignissimos distinctio nisi repudiandae nobis quibusdam perferendis perspiciatis corporis ipsa. Voluptate, fugiat.",
+    "status": true
+  }
+]
