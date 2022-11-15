@@ -9,7 +9,11 @@ import { TasksService } from '../tasks.service';
 })
 export class TodoComponent implements OnInit {
 
-  tasks : Itask [] = this.tasksService.getTasks()
+  tasks : Itask [] = this.tasksService.getTasks();
+
+  changeTaskStatus = (evt: any) => {
+    this.tasksService.changeTaskStatus(evt);
+    }
 
   constructor(private tasksService: TasksService) { }
 

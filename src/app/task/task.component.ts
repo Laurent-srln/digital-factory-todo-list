@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Itask } from '../models/task';
 
 @Component({
@@ -8,6 +8,12 @@ import { Itask } from '../models/task';
 })
 export class TaskComponent implements OnInit {
   @Input() task! : Itask
+
+  @Output() readonly taskChanged = new EventEmitter<Itask>();
+
+  changeTaskStatus(): void {
+    this.taskChanged.emit(this.task)
+  }
 
   constructor() { }
 

@@ -6,7 +6,7 @@
 <!-- todo list -->
       <ul class="mt-3">
         <li *ngFor="let currentTask of tasks;">
-          <app-task [task] = "currentTask"></app-task>
+          <app-task [task] = "currentTask" (taskChanged)="changeTaskStatus($event)"></app-task>
         </li>
       </ul>
     </div>
