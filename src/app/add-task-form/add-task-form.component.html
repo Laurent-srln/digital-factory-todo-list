@@ -1,0 +1,13 @@
+<form (ngSubmit)="addTask();" [formGroup]="todoForm">
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Task Name</mat-label>
+    <input formControlName="taskname" matInput placeholder="Task Name">
+    <!-- <mat-hint>add task name</mat-hint> -->
+  </mat-form-field>
+  <mat-form-field class="full-width " appearance="fill">
+    <mat-label>Task Description</mat-label>
+    <textarea formControlName="taskdescription" class="large-heigth" matInput placeholder="Task Description..."></textarea>
+  </mat-form-field>
+  <button type="submit" mat-raised-button [disabled]="todoForm.invalid" color="primary">Add New Task</button>
+</form>
+

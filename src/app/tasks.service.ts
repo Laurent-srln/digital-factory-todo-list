@@ -9,6 +9,10 @@ export class TasksService {
 
   constructor() { }
 
+  addTasks(task: Itask): void {
+    tasks.unshift(task);
+  }
+
   getTasks(): Itask[] {
     return tasks;
   }

@@ -15,6 +15,19 @@ export class TodoComponent implements OnInit {
     this.tasksService.changeTaskStatus(evt);
     }
 
+  addNewTask = (evt: any) => {
+
+    let maxId = Math.max(...this.tasks.map(e => e.id));
+    let newTask: Itask = {
+      id: maxId+1,
+      title: evt.taskname,
+      description: evt.taskdescription,
+      status: false
+    };
+
+    this.tasksService.addTasks(newTask);
+  }
+
   constructor(private tasksService: TasksService) { }
 
   ngOnInit(): void {

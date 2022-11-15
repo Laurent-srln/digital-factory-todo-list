@@ -1,18 +1,23 @@
 
 .full-width {
-  width: 100%;
+  width: 70%;
+  margin-left: 10vh;
+}
+
+form {
+  margin-top: 3vh;
 }
 
 textarea {
   width: 70%;
-  margin-left: 10vh;
-  height: 50vh;
+  height: 30vh;
+  font-size: 1.2rem;
 }
 
 .name {
-  margin-left: 10vh;
   font-size: 2rem;
   width: 70%;
+  color: black;
 }
 
 .done-task {
@@ -20,13 +25,16 @@ textarea {
 }
 
 .id {
-  margin-left: 10vh;
+  color: black;
+  font-size: 1.2rem;
 }
 
 .status {
-  margin-left: 10vh;
+  color: black;
+  font-size: 1.2rem;
 }
 
 a {
   margin-left: 10vh;
+  color: black;
 }
