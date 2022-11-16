@@ -18,7 +18,7 @@ L'objectif du test était de réaliser une application permettant de gérer une 
 - ~~Ajouter des contrôles sur le formulaire d'ajout~~
 - Compléter les tests unitaires
 - Simuler un backend
-- Ajouter la possibilité d'éditer le formulaire
+- ~~Ajouter la possibilité d'éditer le formulaire~~
 
 ## Commentaires par User Story
 
