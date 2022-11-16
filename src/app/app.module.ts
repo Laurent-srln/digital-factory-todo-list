@@ -18,6 +18,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { AddTaskFormComponent } from './add-task-form/add-task-form.component';
 import {MatInputModule} from '@angular/material/input';
 
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { DataService } from './data.service';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +41,9 @@ import {MatInputModule} from '@angular/material/input';
     MatCheckboxModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(DataService, { dataEncapsulation: false })
   ],
   providers: [],
   bootstrap: [AppComponent]

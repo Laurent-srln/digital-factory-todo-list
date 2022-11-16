@@ -15,10 +15,10 @@ L'objectif du test était de réaliser une application permettant de gérer une 
 
 ## Travail restant à effectuer
 
-- ~~Ajouter des contrôles sur le formulaire d'ajout~~
+- ~~Ajouter des contrôles sur le formulaire d'ajout~~ :white_check_mark:
 - Compléter les tests unitaires
-- Simuler un backend
-- ~~Ajouter la possibilité d'éditer le formulaire~~
+- ~~Simuler un backend~~ :white_check_mark:
+- ~~Ajouter la possibilité d'éditer le formulaire~~ :white_check_mark:
 
 ## Commentaires par User Story
 
@@ -52,8 +52,9 @@ J'ai pris beaucoup de plaisir à réaliser ce test qui m'a permis de faire mes p
 
 Pour la partie test unitaires, il faut que je creuse le sujet pour pouvoir mettre en place une couverture complète.
 
-Concernant le backend simulé, j'ai pour l'instant simplement utilisé un json couplé à un tasks.service pour fournir et interagir avec la data. Je n'ai donc pas réalisé d'appels Http ni géré d'Observables dans le projet.
+~~Concernant le backend simulé, j'ai pour l'instant simplement utilisé un json couplé à un tasks.service pour fournir et interagir avec la data. Je n'ai donc pas réalisé d'appels Http ni géré d'Observables dans le projet.~~
 J'ai identifié 2 pistes pour mettre cela en place ultérieurement :
-- L'utilisation de la lib In-memory Web API
+- L'utilisation de la lib In-memory Web API :white_check_mark:
 - L'utilisation des Interceptors
 
+J'ai finalement mis en place un backend simulé avec la lib In-memory Web API.

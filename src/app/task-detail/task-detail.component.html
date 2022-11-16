@@ -3,7 +3,7 @@
   <form (ngSubmit)="editTask();" [formGroup]="todoForm">
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Task Name</mat-label>
-      <input formControlName="taskname" class="name" [ngClass]="{'done-task': task?.status}"  matInput >
+      <input formControlName="taskname" class="name" [ngClass]="{'done-task': task.status}"  matInput >
     </mat-form-field>
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Task ID</mat-label>

@@ -1,10 +1,10 @@
-<mat-card [ngClass]="{'done-task': task?.status}" class="example-card">
+<mat-card [ngClass]="{'done-task': task.status}" class="example-card">
   <mat-card-title-group>
-    <mat-card-title [ngClass]="{'done-task-title': task?.status}">{{ task?.title}}</mat-card-title>
-    <mat-card-subtitle>Task id : {{task?.id}} - {{ task?.status ? "Done" : "To do" }}</mat-card-subtitle>
+    <mat-card-title [ngClass]="{'done-task-title': task.status}">{{ task.title}}</mat-card-title>
+    <mat-card-subtitle>Task id : {{task.id}} - {{ task.status ? "Done" : "To do" }}</mat-card-subtitle>
   </mat-card-title-group>
   <mat-card-actions class="action-container">
-    <mat-checkbox class="example-margin" [checked]="task?.status" (change)="changeTaskStatus()">{{ task?.status ? "": "I'm done with it"}} </mat-checkbox>
-    <a href="" [routerLink]="['/tasks', task?.id]"><button mat-raised-button color="primary">DETAILS</button></a>
+    <mat-checkbox class="example-margin" [checked]="task.status" (change)="changeTaskStatus()">{{ task.status ? "": "I'm done with it"}} </mat-checkbox>
+    <a href="" [routerLink]="['/tasks', task.id]"><button mat-raised-button color="primary">DETAILS</button></a>
   </mat-card-actions>
 </mat-card>

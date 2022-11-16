@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Itask } from '../models/task';
-import { TasksService } from '../tasks.service';
+import { TasksApiService } from '../tasks-api.service';
 
 @Component({
   selector: 'app-todo',
@@ -9,28 +9,44 @@ import { TasksService } from '../tasks.service';
 })
 export class TodoComponent implements OnInit {
 
-  tasks : Itask [] = this.tasksService.getTasks();
+  // tasks : Itask [] = this.tasksService.getTasks();
+  tasks: Itask[];
+
+  private getTasks() {
+    this.tasksApiService.getTasks().subscribe((tasks: any[]) => {
+      tasks.sort((a:any, b:any) => b.updatedAt-a.updatedAt);
+      this.tasks = tasks;
+      console.log(tasks)
+    }
+    )
+  }
 
   changeTaskStatus = (evt: any) => {
-    this.tasksService.changeTaskStatus(evt);
-    }
+  evt.updatedAt = Date.now();
+  this.tasksApiService.editTask(evt).subscribe();
+  this.getTasks();
+}
 
   addNewTask = (evt: any) => {
 
-    let maxId = Math.max(...this.tasks.map(e => e.id));
+
     let newTask: Itask = {
-      id: maxId+1,
+      id: 0,
       title: evt.taskname,
       description: evt.taskdescription,
-      status: false
+      status: false,
+      updatedAt: Date.now()
     };
 
-    this.tasksService.addTasks(newTask);
+    this.tasksApiService.addTask(newTask).subscribe((response: Itask) => {
+      console.log(response)});
+      this.getTasks();
   }
 
-  constructor(private tasksService: TasksService) { }
+  constructor( private tasksApiService: TasksApiService) { }
 
   ngOnInit(): void {
+    this.getTasks();
   }
 
 }
