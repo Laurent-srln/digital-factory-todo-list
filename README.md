@@ -1,88 +1,58 @@
-# AngularToDoList
+# DFTodoListAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+Ce dépôt contient une application réalisée avec Angular dans le cadre d'un test technique pour la Digital Factory de Sogeti.
 
-## Development server
+L'objectif du test était de réaliser une application permettant de gérer une Todo list en mettant en place les user stories suivantes :
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+**L'application est live et testable** :point_right: [ici](https://laurent-srln.github.io/digital-factory-todo-list/) :point_left: !
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- **1-List my TODOs**. As a user I would like to list my current todos.
+- **2-Change a TODO state**. As a user I would like to change a todo state by checking a "box".
+- **3-Detail a TODO**. As a user I would like to display one of my todo in a separate or dedicated view.This todo will contain its title and a description (which is a new information not shown in the previous view).
+- **4-Add a new TODO**. As a user I would like to add a new todo in my list
 
 
-_________
-<!-- CONSIGNES TEST -->
+## Travail restant à effectuer
 
-# Context
-Our fantastic product owner has a wonderful, amazing and revolutionary idea... he wants to build a new Todo application. 
-He has a good idea of the application behavior and comes with a backlog containing the following user stories :
+- Ajouter des contrôles sur le formulaire d'ajout
+- Compléter les tests unitaires
+- Simuler un backend
+- Ajouter la possibilité d'éditer le formulaire
 
-# User stories
+## Commentaires par User Story
 
+1. List my TODOs
 
-## 1 : List my TODOs
+Pour la mise en place et la démonstration de cette fonctionnalité, j'ai ajouté des données brutes dans le fichier src/app/data.json.
+Chaque tâche est affichée sous la forme d'une carte avec son intitulé, son id et son statut (To do / Done).
+Pour l'interface, j'ai utilisé les bibliothèques Angular Material et Bootstrap.
 
-### Description :
-As a user I would like to list my current todos
-### Acceptance criterias :
-- Each todo could have, at minimal, a related state and title
-- Some hard-coded todos will be initialized in this context to demonstrate the tool 
+2. Change a TODO state
 
-## 2 : Change a TODO state
+Depuis la liste, j'ai ajouté la possibilité de changer le status d'une tâche via une case à cocher directement sur la carte. Si une tâche est indiquée réalisée via cette checkbox, son intitulé est barré et elle se place automatiquement en bas de la liste.
+Si ultérieurement la case est décochée pour indiquer que la tâche n'est finalement pas complétée, elle se replace en haut de la liste et son intitulé est de nouveau affiché non barré.
 
-### Description :
-As a user I would like to change a todo state by checking a "box"
-### Acceptance criterias :
-- When a todo is done, it should be placed at the bottom of the list and should be crossed out
+3. Detail a TODO
 
-## 3 : Detail a TODO
+Depuis les cartes de la liste, j'ai ajouté la possibilité d'afficher le détail d'une tâche via le clic sur un bouton "DETAILS".
+On accède alors à une page séparé via l'url /tasks/:taskId (*exemple* : "https://laurent-srln.github.io/digital-factory-todo-list/tasks/2").
+En prévision de l'ajout d'une fonctionnalité pour éditer les tâches, j'affiche les données au sein d'un formulaire. Pour l'instant il n'est pas possible d'enregistrer les modifications.
+On peut revenir à l'affichage de la liste via le bouton "home" en haut à gauche de la page, via le bouton "RETOUR TODO" situé en bas de page ou via le bouton retour du navigateur.
 
-### Description :
-As a user I would like to display one of my todo in a separate or dedicated view.
-This todo will contain its title and a description (which is a new information not shown in the previous view).
-### Acceptance criterias :
-- We can click on a todo (by any way) to access the details view of the todo
-- The todo could be accessed via a unique URL
+4. Add a new TODO
 
-## 4 : Add a new TODO
+Toujours depuis la liste de tâches, j'ai ajouté un formulaire permettant d'ajouter une nouvelle tâche.
+À la soumission, un id est généré et la tâche est ajoutée avec un status "false" par défaut.
+Au niveau de l'affichage, la tâche vient se placer en haut de la liste.
 
-### Description :
-As a user I would like to add a new todo in my list
-### Acceptance criterias :
-- The todo title is required
-- The todo description can be empty
-- The newly created todo has to be on top of the list of todos
-- You are free to choose the design / interaction 
+## Commentaire général
 
-# Technical environment
-You're working in the WebFactory which provides the following technical recommendations :
-- The backend application should be based on your preferred languages (Java , JS, PHP, Python, Go, C++, ...) and/or Framework (Spring Boot, Django, .NetCore , NodeJS, Angular, React, ...)
-- To keep the UI simple
-- Code quality is very important, so all the code has to be covered by unit tests
-- Each user story should be realized in its own commit on master
-- The product owner is curious and likes to read the application code on Github and test it via Github Pages
-- The application should have a mocked backend and store all todos on it (extension of HttpXhrBackend)
+J'ai pris beaucoup de plaisir à réaliser ce test qui m'a permis de faire mes premiers pas avec Angular et Typescript !
 
-# Bonus
-You can add any new functionality in this wonderful project if you want to, in order to satisfy your PO 😉  
+Pour la partie test unitaires, il faut que je creuse le sujet pour pouvoir mettre en place une couverture complète.
 
-
-
+Concernant le backend simulé, j'ai pour l'instant simplement utilisé un json couplé à un tasks.service pour fournir et interagir avec la data. Je n'ai donc pas réalisé d'appels Http ni géré d'Observables dans le projet.
+J'ai identifié 2 pistes pour mettre cela en place ultérieurement :
+- L'utilisation de la lib In-memory Web API
+- L'utilisation des Interceptors
 
