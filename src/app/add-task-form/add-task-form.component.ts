@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl} from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-add-task-form',
@@ -18,8 +18,8 @@ export class AddTaskFormComponent implements OnInit {
   constructor(private fb : FormBuilder) {
     //build the form here
     this.todoForm = fb.group({
-      taskname: '',
-      taskdescription: ''
+      taskname: fb.control('', [Validators.required]),
+      taskdescription: fb.control('')
     })
 
   }
