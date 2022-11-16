@@ -15,7 +15,7 @@ L'objectif du test était de réaliser une application permettant de gérer une 
 
 ## Travail restant à effectuer
 
-- Ajouter des contrôles sur le formulaire d'ajout
+- ~~Ajouter des contrôles sur le formulaire d'ajout~~
 - Compléter les tests unitaires
 - Simuler un backend
 - Ajouter la possibilité d'éditer le formulaire
