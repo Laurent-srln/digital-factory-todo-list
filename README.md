@@ -2,9 +2,10 @@
 
 Ce dépôt contient une application réalisée avec Angular dans le cadre d'un test technique pour la Digital Factory de Sogeti.
 
+**L'application est live et testable** :point_right: [ici](https://laurent-srln.github.io/digital-factory-todo-list/) :point_left: !
+
 L'objectif du test était de réaliser une application permettant de gérer une Todo list en mettant en place les user stories suivantes :
 
-**L'application est live et testable** :point_right: [ici](https://laurent-srln.github.io/digital-factory-todo-list/) :point_left: !
 
 - **1-List my TODOs**. As a user I would like to list my current todos.
 - **2-Change a TODO state**. As a user I would like to change a todo state by checking a "box".

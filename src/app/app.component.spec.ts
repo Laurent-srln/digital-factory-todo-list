@@ -26,10 +26,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('DF-TodoList-Angular');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('DF-TodoList-Angular app is running!');
-  });
 });
