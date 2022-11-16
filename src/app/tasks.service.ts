@@ -31,4 +31,11 @@ export class TasksService {
       tasks.unshift(tasks.splice(index,1)[0]);
     }
     }
+
+    editTask = (task: Itask) => {
+      let index = tasks.map(e => e.id).indexOf(task.id);
+      tasks.splice(index,1);
+      tasks.splice(index,0, task);
+      }
+
 }

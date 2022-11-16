@@ -1,21 +1,27 @@
 
-<form >
-  <mat-form-field class="full-width" appearance="outline">
-    <mat-label>Task Name</mat-label>
-    <input class="name" [ngClass]="{'done-task': task?.status}"  matInput [value]="task?.title">
-  </mat-form-field>
-  <mat-form-field class="full-width" appearance="outline">
-    <mat-label>Task ID</mat-label>
-    <input class="id" disabled  matInput [value]="task?.id">
-  </mat-form-field>
-  <mat-form-field class="full-width" appearance="outline">
-    <mat-label>Task Status</mat-label>
-    <input class="status" disabled  matInput [value]="task?.status? 'Done' : 'To do'">
-  </mat-form-field>
-  <mat-form-field class="full-width " appearance="fill">
-    <mat-label>Task Description</mat-label>
-    <textarea   class="large-heigth" matInput [value]="task?.description"></textarea>
-  </mat-form-field>
-</form>
+<div class="container">
+  <form (ngSubmit)="editTask();" [formGroup]="todoForm">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Task Name</mat-label>
+      <input formControlName="taskname" class="name" [ngClass]="{'done-task': task?.status}"  matInput >
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Task ID</mat-label>
+      <input formControlName="taskid" class="id"  matInput >
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Task Status</mat-label>
+      <input formControlName="taskstatus" class="status"   matInput >
+    </mat-form-field>
+    <mat-form-field class="full-width " appearance="fill">
+      <mat-label>Task Description</mat-label>
+      <textarea  formControlName="taskdescription" class="large-heigth" matInput></textarea>
+    </mat-form-field>
+    <div class="button-container">
+      <a href="" [routerLink]="['/']"><button mat-raised-button color="accent">RETOUR TODO</button></a>
+      <button type="submit" mat-raised-button [disabled]="todoForm.invalid" color="primary">SAVE CHANGES</button>
+    </div>
+  </form>
+</div>
 
-<a href="" [routerLink]="['/']"><button mat-button>RETOUR TODO</button></a>
+

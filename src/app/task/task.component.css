@@ -6,3 +6,8 @@
 .done-task {
   text-decoration: line-through;
 }
+
+.action-container {
+  display: flex;
+  justify-content: space-between;
+}
