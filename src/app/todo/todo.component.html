@@ -11,11 +11,11 @@
 <!-- todo list -->
       <ul class="mt-3">
         <li *ngFor="let currentTask of tasks;">
-          <app-task  [task] = "currentTask" (taskChanged)="changeTaskStatus($event)"></app-task>
+          <app-task *ngIf="!currentTask.status" [task] = "currentTask" (taskChanged)="changeTaskStatus($event)"></app-task>
         </li>
-        <!-- <li *ngFor="let currentTask of tasks.reverse();">
+        <li *ngFor="let currentTask of tasks.slice().reverse();">
           <app-task *ngIf="currentTask.status" [task] = "currentTask" (taskChanged)="changeTaskStatus($event)"></app-task>
-        </li> -->
+        </li>
       </ul>
     </div>
   </div>
