@@ -14,9 +14,9 @@ export class TodoComponent implements OnInit {
 
   private getTasks() {
     this.tasksApiService.getTasks().subscribe((tasks: any[]) => {
-      tasks.sort((a:any, b:any) => b.updatedAt-a.updatedAt);
-      this.tasks = tasks;
-      console.log(this.tasks)
+      console.log("avant tri", tasks)
+      this.tasks = tasks.sort((a:any, b:any) => b.updatedAt-a.updatedAt);
+      console.log("après tri", this.tasks)
     }
     )
   }
@@ -28,8 +28,6 @@ export class TodoComponent implements OnInit {
 }
 
   addNewTask = (evt: any) => {
-
-
     let newTask: Itask = {
       id: 0,
       title: evt.taskname,
@@ -39,8 +37,9 @@ export class TodoComponent implements OnInit {
     };
 
     this.tasksApiService.addTask(newTask).subscribe((response: Itask) => {
-      console.log(response)});
-      this.getTasks();
+      console.log(response)
+      this.getTasks()});
+      ;
   }
 
   constructor( private tasksApiService: TasksApiService) { }
