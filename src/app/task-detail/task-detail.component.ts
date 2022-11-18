@@ -50,8 +50,8 @@ export class TaskDetailComponent implements OnInit {
       this.todoForm = this.fb.group({
         taskname: this.fb.control(this.task.title, [Validators.required]),
         taskdescription: this.fb.control(this.task.description),
-        taskid: this.fb.control(this.task.id!.toString()),
-        taskstatus: this.fb.control(this.task.status ? "Done" : "To do")
+        taskid: [{value: this.task.id!.toString(), disabled: true}],
+        taskstatus: [{value: this.task.status ? "Done" : "To do", disabled: true}]
       })
     }
     )
