@@ -16,7 +16,7 @@ export class TodoComponent implements OnInit {
     this.tasksApiService.getTasks().subscribe((tasks: any[]) => {
       tasks.sort((a:any, b:any) => b.updatedAt-a.updatedAt);
       this.tasks = tasks;
-      console.log(tasks)
+      console.log(this.tasks)
     }
     )
   }
