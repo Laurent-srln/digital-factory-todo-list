@@ -12,6 +12,7 @@ export class TaskComponent implements OnInit {
   @Output() readonly taskChanged = new EventEmitter<Itask>();
 
   changeTaskStatus(): void {
+    this.task.status ? this.task.status = false : this.task.status = true;
     this.taskChanged.emit(this.task)
   }
 

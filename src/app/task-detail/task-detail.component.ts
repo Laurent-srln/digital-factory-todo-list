@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { TasksService } from '../tasks.service';
 import { Itask } from '../models/task';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { TasksApiService } from '../tasks-api.service';
 
 @Component({
   selector: 'app-task-detail',
@@ -21,7 +21,7 @@ export class TaskDetailComponent implements OnInit {
     taskstatus: FormControl<string | null>;
   }>;
 
-  constructor(private fb : FormBuilder, private tasksService: TasksService, private route: ActivatedRoute) {
+  constructor(private fb : FormBuilder, private tasksApiService: TasksApiService, private route: ActivatedRoute) {
     this.id = Number(this.route.snapshot.paramMap.get('taskId'));
     this.todoForm = this.fb.group({
       taskname: this.fb.control('', [Validators.required]),
@@ -31,27 +31,35 @@ export class TaskDetailComponent implements OnInit {
     })
    }
 
-
   editTask = () => {
 
     let newTask: Itask = {
       id: this.task.id,
       title: this.todoForm.value.taskname!,
       description: this.todoForm.value.taskdescription!,
-      status: this.task.status
+      status: this.task.status,
+      updatedAt: Date.now()
     };
 
-    this.tasksService.editTask(newTask);
+    this.tasksApiService.editTask(newTask).subscribe((response:any) => console.log(response));
+  }
+
+  private getTask(id: number) {
+    this.tasksApiService.getTaskById(id).subscribe((task: any) => {
+      this.task = task;
+      this.todoForm = this.fb.group({
+        taskname: this.fb.control(this.task.title, [Validators.required]),
+        taskdescription: this.fb.control(this.task.description),
+        taskid: [{value: this.task.id!.toString(), disabled: true}],
+        taskstatus: [{value: this.task.status ? "Done" : "To do", disabled: true}]
+      })
+    }
+    )
   }
 
   ngOnInit(): void {
-    this.task = this.tasksService.getTaskById(this.id);
-    this.todoForm = this.fb.group({
-      taskname: this.fb.control(this.task.title, [Validators.required]),
-      taskdescription: this.fb.control(this.task.description),
-      taskid: this.fb.control(this.task.id.toString()),
-      taskstatus: this.fb.control(this.task.status ? "Done" : "To do")
-    })
+    this.getTask(this.id);
+
 
   }
 
