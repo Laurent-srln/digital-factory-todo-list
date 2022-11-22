@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TaskDetailComponent } from './task-detail.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('TaskDetailComponent', () => {
   let component: TaskDetailComponent;
@@ -10,7 +12,9 @@ describe('TaskDetailComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        ReactiveFormsModule,
+        HttpClientTestingModule
       ],
       declarations: [ TaskDetailComponent ]
     })
@@ -18,7 +22,14 @@ describe('TaskDetailComponent', () => {
 
     fixture = TestBed.createComponent(TaskDetailComponent);
     component = fixture.componentInstance;
-    component.id = 1;
+    component.task = {
+      id: 1000,
+      title: "test-task",
+      description: "test-description",
+      status: false,
+      updatedAt: Date.now()
+    };
+    component.id = 1000;
     fixture.detectChanges();
   });
 

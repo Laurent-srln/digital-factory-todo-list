@@ -19,7 +19,8 @@ describe('TaskComponent', () => {
       id: 1000,
       title: "test-task",
       description: "test-description",
-      status: false
+      status: false,
+      updatedAt: Date.now()
     };
     fixture.detectChanges();
   });
