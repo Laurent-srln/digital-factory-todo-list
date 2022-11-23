@@ -21,7 +21,7 @@ export class TaskDetailComponent implements OnInit {
     taskstatus: FormControl<string | null>;
   }>;
 
-  constructor(private fb : FormBuilder, private tasksApiService: TasksApiService, private route: ActivatedRoute) {
+  constructor(public fb : FormBuilder, private tasksApiService: TasksApiService, private route: ActivatedRoute) {
     this.id = Number(this.route.snapshot.paramMap.get('taskId'));
     this.todoForm = this.fb.group({
       taskname: this.fb.control('', [Validators.required]),
@@ -47,20 +47,23 @@ export class TaskDetailComponent implements OnInit {
   private getTask(id: number) {
     this.tasksApiService.getTaskById(id).subscribe((task: any) => {
       this.task = task;
-      this.todoForm = this.fb.group({
-        taskname: this.fb.control(this.task.title, [Validators.required]),
-        taskdescription: this.fb.control(this.task.description),
-        taskid: [{value: this.task.id!.toString(), disabled: true}],
-        taskstatus: [{value: this.task.status ? "Done" : "To do", disabled: true}]
-      })
+      this.fillForm();
+
     }
     )
   }
 
+  fillForm() {
+    this.todoForm = this.fb.group({
+      taskname: this.fb.control(this.task.title, [Validators.required]),
+      taskdescription: this.fb.control(this.task.description),
+      taskid: [{value: this.task.id!.toString(), disabled: true}],
+      taskstatus: [{value: this.task.status ? "Done" : "To do", disabled: true}]
+    })
+  }
+
   ngOnInit(): void {
     this.getTask(this.id);
-
-
   }
 
 }

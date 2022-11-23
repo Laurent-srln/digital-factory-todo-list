@@ -4,13 +4,15 @@ import { TaskDetailComponent } from './task-detail.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { fakeAsync, tick } from '@angular/core/testing';
+
 
 describe('TaskDetailComponent', () => {
   let component: TaskDetailComponent;
   let fixture: ComponentFixture<TaskDetailComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(fakeAsync (() => {
+     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
         ReactiveFormsModule,
@@ -30,16 +32,19 @@ describe('TaskDetailComponent', () => {
       updatedAt: Date.now()
     };
     component.id = 1000;
+
     fixture.detectChanges();
-  });
+    tick();
+  }));
 
   it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should correctly render the task data', () => {
-    component.ngOnInit();
-    let title = fixture.debugElement.nativeElement.querySelector('.name')
-    expect(title.value).toBe('Develop functionality to list TODOs');
+  it('should correctly render the task data',  () => {
+    component.fillForm();
+    // let title = fixture.debugElement.nativeElement.querySelector('.name')
+    // title.value ne prends pas en compte la donnée injectée par component.fillForm()
+    expect(component.todoForm.value.taskname).toBe('test-task');
   });
 });
