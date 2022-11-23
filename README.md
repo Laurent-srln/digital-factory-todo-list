@@ -37,7 +37,7 @@ Si ultérieurement la case est décochée pour indiquer que la tâche n'est fina
 
 Depuis les cartes de la liste, j'ai ajouté la possibilité d'afficher le détail d'une tâche via le clic sur un bouton "DETAILS".
 On accède alors à une page séparé via l'url /tasks/:taskId (*exemple* : "https://laurent-srln.github.io/digital-factory-todo-list/tasks/2").
-En prévision de l'ajout d'une fonctionnalité pour éditer les tâches, j'affiche les données au sein d'un formulaire. Pour l'instant il n'est pas possible d'enregistrer les modifications.
+En prévision de l'ajout d'une fonctionnalité pour éditer les tâches, j'affiche les données au sein d'un formulaire. ~~Pour l'instant il n'est pas possible d'enregistrer les modifications~~.
 On peut revenir à l'affichage de la liste via le bouton "home" en haut à gauche de la page, via le bouton "RETOUR TODO" situé en bas de page ou via le bouton retour du navigateur.
 
 4. Add a new TODO
@@ -50,11 +50,11 @@ Au niveau de l'affichage, la tâche vient se placer en haut de la liste.
 
 J'ai pris beaucoup de plaisir à réaliser ce test qui m'a permis de faire mes premiers pas avec Angular et Typescript !
 
-Pour la partie test unitaires, il faut que je creuse le sujet pour pouvoir mettre en place une couverture complète.
+Pour la partie tests unitaires, il faut que je creuse le sujet pour pouvoir mettre en place une couverture complète.
 
 ~~Concernant le backend simulé, j'ai pour l'instant simplement utilisé un json couplé à un tasks.service pour fournir et interagir avec la data. Je n'ai donc pas réalisé d'appels Http ni géré d'Observables dans le projet.~~
-J'ai identifié 2 pistes pour mettre cela en place ultérieurement :
-- L'utilisation de la lib In-memory Web API :white_check_mark:
-- L'utilisation des Interceptors
+~~J'ai identifié 2 pistes pour mettre cela en place ultérieurement :~~
+~~- L'utilisation de la lib In-memory Web API :white_check_mark:~~
+~~- L'utilisation des Interceptors~~
 
 J'ai finalement mis en place un backend simulé avec la lib In-memory Web API.
